@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ShoppingCartContext } from "../../context";
-import ProductTile from "../../components/productTile";
+import ProductTile from "../../components/ProductTile";
 
 function ProductListPage() {
   const { listOfProducts, loading } = useContext(ShoppingCartContext);
