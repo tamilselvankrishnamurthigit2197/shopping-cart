@@ -11,12 +11,17 @@ function ShoppingCartProvider({ children }) {
   const navigate = useNavigate();
 
   async function fetchListOfProducts() {
-    const apiResponse = await fetch(`${import.meta.env.VITE_CONTEXT_API_URL}/products`);
+    try {
+      const apiResponse = await fetch(`${import.meta.env.VITE_CONTEXT_API_URL}/products`);
 
-    const result = await apiResponse.json();
+      const result = await apiResponse.json();
 
-    if (result && result?.products) {
-      setListOfProducts(result?.products);
+      if (result && result?.products) {
+        setListOfProducts(result?.products);
+        setLoading(false);
+      }
+    } catch (error) {
+      console.error("Error while fetching the products");
       setLoading(false);
     }
   }
@@ -56,9 +61,13 @@ function ShoppingCartProvider({ children }) {
 
   function handleRemoveFromCart(getProductDetails, isFullyRemoveFromCart) {
     let cpyExistingCartItems = [...cartItems];
+
     const findIndexOfCurrentCartItem = cpyExistingCartItems.findIndex(
       (item) => item.id === getProductDetails.id
     );
+
+     // No item found, exit function
+    if (findIndexOfCurrentCartItem === -1) return; 
 
     if (isFullyRemoveFromCart) {
       cpyExistingCartItems.splice(findIndexOfCurrentCartItem, 1);
