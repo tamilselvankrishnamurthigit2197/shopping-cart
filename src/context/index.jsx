@@ -11,7 +11,8 @@ function ShoppingCartProvider({ children }) {
   const navigate = useNavigate();
 
   async function fetchListOfProducts() {
-    const apiResponse = await fetch(`${import.meta.env.CONTEXT_API_URL}/products`);
+    const apiResponse = await fetch(`${import.meta.env.VITE_CONTEXT_API_URL}/products`);
+
     const result = await apiResponse.json();
 
     if (result && result?.products) {
