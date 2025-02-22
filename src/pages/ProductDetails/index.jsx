@@ -14,7 +14,7 @@ function ProductDetailsPage() {
   } = useContext(ShoppingCartContext);
 
   async function fetchProductDetails() {
-    const apiResponse = await fetch(`https://dummyjson.com/products/${id}`);
+    const apiResponse = await fetch(`${import.meta.env.CONTEXT_API_URL}/products/${id}`);
     const result = await apiResponse.json();
 
     if (result) {
