@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ShoppingCartContext } from "../../context";
 import { useNavigate } from "react-router-dom";
-import CartTile from "../../components/cartTile";
+import CartTile from "../../components/CartTile";
 
 function CartListPage() {
   const { cartItems } = useContext(ShoppingCartContext);
