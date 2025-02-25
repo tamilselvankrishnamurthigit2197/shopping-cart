@@ -16,15 +16,17 @@ function ProductTile({ singleProductTile }) {
         <img
           src={singleProductTile?.thumbnail}
           alt={singleProductTile?.title}
-          className="oject-cover w-full h-full transition-all duration-300 group-hover:scale-125"
+          className="object-cover w-full h-full transition-all duration-300 group-hover:scale-125"
         />
       </div>
+
       <div className="flex items-start justify-between mt-4 space-x-4">
         <div className="font-bold text-gray-900 sm:text-sm text-xs md:text-base">
           <p className="w-[100px] overflow-hidden text-ellipsis whitespace-nowrap">
             {singleProductTile?.title}
           </p>
         </div>
+        
         <div className="text-right">
           <p className="text-xs font-bold text-gray-900 sm:text-sm md:text-[14px]">
             ${singleProductTile?.price}

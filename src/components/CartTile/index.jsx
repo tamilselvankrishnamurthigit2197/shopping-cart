@@ -31,7 +31,7 @@ function CartTile({ singleCartItem }) {
           <h3 className="text-lg font-bold text-gray-900">
             ${singleCartItem?.totalPrice.toFixed(2)}
           </h3>
-          <p className="mt-2 mb-3 font-bolf text-[16px]">
+          <p className="mt-2 mb-3 font-bold text-[16px]">
             Quantity: {singleCartItem?.quantity}
           </p>
           <div className="mt-3">
